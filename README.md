@@ -1,6 +1,16 @@
 # Flowerisy
 
-A pomodoro timer and to-do list that stay in your browser.
+A pomodoro timer and to-do list you can install as an app. Tasks stay in this browser.
+
+## Install the app
+
+Open the live site: <https://fs1lyric.github.io/flowerisy/>
+
+- **Chrome / Edge / Chromium:** use **Install app** on the page, or the install icon in the address bar.
+- **Safari (iPhone / iPad):** Share → **Add to Home Screen**.
+- **Firefox:** the page still works; install support varies by platform.
+
+After install it opens in its own window, without browser chrome.
 
 ## Use it
 
@@ -22,6 +32,6 @@ python -m http.server 8080
 
 Then visit `http://localhost:8080`.
 
-## GitHub Pages
+## Hosting
 
-This repo is static files at the root, so Pages can serve `/` from the `main` branch.
+GitHub Pages deploys from `main` via `.github/workflows/pages.yml`. The installable app lives at `/flowerisy/`.

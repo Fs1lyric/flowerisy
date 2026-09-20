@@ -6,8 +6,13 @@
     <meta name="description" content="A pomodoro timer and to-do list for one quiet session at a time." />
     <meta name="theme-color" content="#F3E8D8" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#1A1612" media="(prefers-color-scheme: dark)" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Flowerisy" />
     <title>Flowerisy</title>
+    <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,6 +28,9 @@
       <div class="topbar-actions">
         <button type="button" class="ghost" id="notify-btn" aria-pressed="false">
           Alerts off
+        </button>
+        <button type="button" class="ghost" id="install-btn" hidden>
+          Install app
         </button>
         <button type="button" class="ghost" id="theme-btn" aria-label="Switch color theme">
           Theme

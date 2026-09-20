@@ -23,6 +23,7 @@ const els = {
   listMeta: document.getElementById("list-meta"),
   notify: document.getElementById("notify-btn"),
   theme: document.getElementById("theme-btn"),
+  install: document.getElementById("install-btn"),
   progress: document.querySelector(".ring-progress"),
 };
 
@@ -335,3 +336,25 @@ els.notify.setAttribute("aria-pressed", String(state.alerts));
 renderTimer();
 renderTasks();
 saveState();
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+}
+
+let installPrompt = null;
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  installPrompt = event;
+  els.install.hidden = false;
+});
+els.install.addEventListener("click", async () => {
+  if (!installPrompt) return;
+  installPrompt.prompt();
+  await installPrompt.userChoice;
+  installPrompt = null;
+  els.install.hidden = true;
+});
+window.addEventListener("appinstalled", () => {
+  els.install.hidden = true;
+  setStatus("Installed. Open Flowerisy from your app list.");
+});
